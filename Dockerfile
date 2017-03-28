@@ -1,12 +1,6 @@
 FROM ubuntu:latest
 MAINTAINER Jan Sanchez <joejansanchez@gmail.com>
 
-# Setting Enviroment variables
-ENV NODE_VERSION 6.9.5
-ENV NODE_ARCH x64
-ENV TMP /tmp
-ENV NODE_FILEPATH node-v$NODE_VERSION-linux-$NODE_ARCH
-
 # Udpating and Installing dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
@@ -14,6 +8,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     xz-utils \
     openssl \
     && rm -rf /var/lib/apt/lists/*
+
+# Setting Enviroment variables
+ENV NODE_VERSION 6.10.1
+ENV NODE_ARCH x64
+ENV TMP /tmp
+ENV NODE_FILEPATH node-v$NODE_VERSION-linux-$NODE_ARCH
 
 # Install Nodejs
 RUN curl -SL https://nodejs.org/dist/v$NODE_VERSION/$NODE_FILEPATH.tar.xz -o $TMP/$NODE_FILEPATH.tar.xz \
