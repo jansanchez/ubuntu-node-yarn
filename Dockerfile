@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Setting Enviroment variables
-ENV NODE_VERSION 6.10.1
+ENV NODE_VERSION 6.10.2
 ENV NODE_ARCH x64
 ENV TMP /tmp
 ENV NODE_FILEPATH node-v$NODE_VERSION-linux-$NODE_ARCH
